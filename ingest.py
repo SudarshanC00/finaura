@@ -119,7 +119,7 @@ def ingest_pdf(
     # ── Step 1: Docling PDF Conversion ────────────────────────────────────
     pipeline_options = PdfPipelineOptions()
     pipeline_options.do_table_structure = True
-    pipeline_options.do_ocr = True
+    pipeline_options.do_ocr = False
 
     converter = DocumentConverter(
         allowed_formats=[InputFormat.PDF],
@@ -127,7 +127,7 @@ def ingest_pdf(
             InputFormat.PDF: PdfFormatOption(
                 pipeline_options=PdfPipelineOptions(
                     do_table_structure=True,
-                    do_ocr=True,
+                    do_ocr=False,
                 )
             )
         },

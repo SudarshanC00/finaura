@@ -24,11 +24,11 @@ QDRANT_PATH = "./storage/qdrant"
 DEFAULT_COLLECTION_NAME = "financial_docs"
 
 # ── Chunking Parameters ──────────────────────────────────────────────────────
-CHUNK_SIZE = 1024
-CHUNK_OVERLAP = 128
+CHUNK_SIZE = 512
+CHUNK_OVERLAP = 64
 
 # ── Retrieval Parameters ──────────────────────────────────────────────────────
-SIMILARITY_TOP_K = 6
+SIMILARITY_TOP_K = 3
 
 # ── Unit Multiplier Patterns ─────────────────────────────────────────────────
 MULTIPLIER_PATTERNS = {
