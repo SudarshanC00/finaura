@@ -27,10 +27,10 @@ OPENAI_API_BASE = "https://openrouter.ai/api/v1" if OPENAI_API_KEY and OPENAI_AP
 
 # ── LLM Models ────────────────────────────────────────────────────────────────
 # ── LLM Models ────────────────────────────────────────────────────────────────
-REASONING_LLM = "openai/gpt-oss-120b:free"                    # Primary reasoning LLM
-VISION_LLM = "openai/gpt-oss-120b:free"                  # Fast table summarization
-EMBEDDING_MODEL = "nvidia/llama-nemotron-embed-vl-1b-v2:free"   # High-dimensional financial embeddings
-EMBEDDING_DIM = 2048                         # Dimensions for nemotron-embed
+REASONING_LLM = "gpt-4o"                    # Primary reasoning LLM
+VISION_LLM = "gpt-4o-mini"                  # Fast table summarization
+EMBEDDING_MODEL = "text-embedding-3-large"   # High-dimensional financial embeddings
+EMBEDDING_DIM = 3072                         # Dimensions for text-embedding-3-large
 
 # ── Qdrant Vector Store ───────────────────────────────────────────────────────
 QDRANT_PATH = "./storage/qdrant"
