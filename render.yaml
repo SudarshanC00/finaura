@@ -1,0 +1,17 @@
+# render.yaml — Render Blueprint for one-click deployment
+# Usage: Go to https://render.com/deploy and connect this repo
+
+services:
+  - type: web
+    name: financial-rag-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in Render dashboard
+    disk:
+      name: rag-storage
+      mountPath: /app/storage
+      sizeGB: 1
+    healthCheckPath: /api/health
