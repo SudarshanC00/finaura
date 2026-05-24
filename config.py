@@ -4,10 +4,22 @@ All API keys are loaded from environment variables.
 """
 
 import os
-
 from dotenv import load_dotenv
+import llama_index.llms.openai.utils as openai_utils
 
 load_dotenv()
+
+# ── Monkeypatch LlamaIndex Model Validator ────────────────────────────────────
+# LlamaIndex hardcodes OpenAI model names. We bypass it so OpenRouter aliases work.
+_original_context_fetcher = openai_utils.openai_modelname_to_contextsize
+
+def _safe_context_size(model_name: str) -> int:
+    try:
+        return _original_context_fetcher(model_name)
+    except ValueError:
+        return 4096
+
+openai_utils.openai_modelname_to_contextsize = _safe_context_size
 
 # ── API Keys ──────────────────────────────────────────────────────────────────
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
